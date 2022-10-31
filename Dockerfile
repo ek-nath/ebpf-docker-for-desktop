@@ -1,8 +1,6 @@
-FROM docker/for-desktop-kernel:5.10.76-505289bcc85427a04d8d797e06cbca92eee291f4 AS ksrc
+FROM docker/for-desktop-kernel:5.15.49-13422a825f833d125942948cf8a8688cef721ead AS ksrc
 
-LABEL maintainer="zeonll@outlook.com"
-
-FROM ubuntu:21.04
+FROM ubuntu:20.04
 
 WORKDIR /
 COPY --from=ksrc /kernel-dev.tar /
