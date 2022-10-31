@@ -2,7 +2,7 @@
 cd /usr/src
 
 echo "downloading"
-wget -O $(uname -r).tar.gz https://mirrors.aliyun.com/linux-kernel/v5.x/linux-5.15.49.tar.gz
+wget -O $(uname -r).tar.gz https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.15.49.tar.gz
 tar -zxvf $(uname -r).tar.gz -C .
 mv linux-5.15.49/ $(uname -r)
 
