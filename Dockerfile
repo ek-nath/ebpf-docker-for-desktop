@@ -22,7 +22,7 @@ WORKDIR  /lib/modules/5.15.49-linuxkit
 
 RUN echo "download success"
 
-COPY linuxkit-complier.sh /root
+COPY linuxkit-compiler.sh /root
 RUN sh /root/linuxkit-complier.sh
 RUN echo "compiler successs"
 
