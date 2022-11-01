@@ -22,16 +22,15 @@ WORKDIR  /lib/modules/5.15.49-linuxkit
 
 RUN echo "download success"
 
-COPY linuxkit-compiler.sh /root
+COPY linuxkit-complier.sh /root
 RUN sh /root/linuxkit-complier.sh
 RUN echo "compiler successs"
 
-RUN cd /lib/modules/5.15.49-linuxkit \
-    && rm -rf source \
-    && rm -rf build 
+WORKDIR  /lib/modules/5.15.49-linuxkit 
+RUN rm -rf source build 
 RUN cp -r /usr/src/5.15.49-linuxkit/ . \
     && mv 5.15.49-linuxkit source 
 RUN cp -r /usr/src/5.15.49-linuxkit/ . \
     && mv 5.15.49-linuxkit build 
-
+WORKDIR /root
 CMD mount -t debugfs debugfs /sys/kernel/debug && /bin/bash
